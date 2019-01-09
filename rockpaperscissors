@@ -1,0 +1,99 @@
+import random
+
+def main():
+  print('ROCK PAPER SCISSORS')
+  print()
+  print('Rules: \n 1) Rock beats Scissors.')
+  print(' 2) Scissors beats Paper.')
+  print(' 3) Paper beats Rock.')
+
+def rock_paper_scissors():
+  weapons = 'rock','paper','scissors'
+  computer_score = 0
+  user_score = 0
+  tie=0
+  rounds = 0
+  paper=0
+  rock=0
+  scissors=0
+  while True:
+    rounds=rounds+1
+    print()
+    print("Match #", rounds, "")
+    while True:
+        rock_paper_scissors=input("Pick your weapon: rock, paper, scissors or quit? ").lower()
+        if rock_paper_scissors in ('rock','paper','scissors','quit','Rock','Paper','Scissors','Quit'):
+          break
+        else:
+          print('Enter a valid choice!')
+  
+    if rock_paper_scissors=='quit':
+        break
+  
+    if (paper==0 and rock==0 and scissors==0) or ( paper==scissors and rock==scissors):
+        computer = random.choice(weapons)
+    elif paper>rock and paper>scissors:  
+        computer = 'paper'
+    elif rock>paper and rock>scissors:
+        computer = 'rock'
+    elif scissors>paper and scissors>rock:
+        computer = 'scissors'
+    elif scissors==paper and scissors>rock:
+        computer=random.choice(('scissors','paper'))
+    elif scissors==rock and scissors>paper:
+        computer=random.choice(('scissors','rock'))
+    elif rock==paper and rock>scissors:
+        computer=random.choice(('rock','paper'))
+    else:
+        pass
+  
+    if rock_paper_scissors == computer:
+        print('Tie!')
+        tie +=1
+    if rock_paper_scissors=='paper':
+        paper +=1
+    if rock_paper_scissors=='rock':
+        rock =rock+1
+    if rock_paper_scissors=='scissors':
+        scissors +=1
+    if (rock_paper_scissors == 'paper' and computer == 'rock'):
+        print('Computer used rock, you win!')  
+        user_score=user_score+1
+        paper +=1
+    if (rock_paper_scissors == 'rock' and computer == 'scissors'):
+        print('Computer used scissors, you win!')
+        user_score=user_score+1
+        rock +=1
+    if(rock_paper_scissors == 'scissors' and computer == 'paper'):
+        print('Computer used paper, you win!')
+        user_score=user_score+1
+        scissors +=1
+    if(rock_paper_scissors == 'rock' and computer == 'paper'):
+        print('Computer used paper, you lose!')
+        computer_score=computer_score+1
+        rock +=1
+    if (rock_paper_scissors == 'scissors' and computer == 'rock'):
+        print('Computer used rock, you lose!')
+        computer_score=computer_score+1
+        s +=1
+    if(rock_paper_scissors == 'paper' and computer == 'scissors'):
+        print('Computer used scissors, you lose!')
+        computer_score=computer_score+1
+        paper +=1
+  
+    print ("Your score:", user_score)
+    print ("Computer's score:", computer_score)
+    print("Keep playing? If done enter quit")
+
+  
+  print('The number of rounds the computer has won:',computer_score)
+  print('The number of rounds the user has won:',user_score)
+  print('The number of rounds that ended in a tie:',tie)
+  print('\nThe number of times the user selected each weapon:')
+  print('Rock:',rock)
+  print('Paper:',paper)
+  print('Scissors:',scissors)
+
+
+main()
+rock_paper_scissors()
