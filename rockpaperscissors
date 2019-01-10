@@ -75,7 +75,7 @@ def rock_paper_scissors():
     if (rock_paper_scissors == 'scissors' and computer == 'rock'):
         print('Computer used rock, you lose!')
         computer_score=computer_score+1
-        s +=1
+        scissors +=1
     if(rock_paper_scissors == 'paper' and computer == 'scissors'):
         print('Computer used scissors, you lose!')
         computer_score=computer_score+1
